@@ -1,0 +1,72 @@
+#!/bin/bash
+
+asciinema rec $1.cast
+
+echo -e "Enter 1 to Create an SVG\nEnter 2 to create a GIF"
+
+valid_option=false
+
+while [ "$valid_option" = false ]; do
+  echo "What to do with the recording: "
+  read option
+
+  case "$option" in
+    "1")
+    echo "Converting your recording to SVG..."
+    svg-term --in $1.cast --out $1.svg --window --width 80 --height 22 --no-optimize
+    mv ./$1.svg /home/$USER/Pictures/terminal_SVG
+    valid_option=true
+      ;;
+    "2")
+      echo "Converting your recording to GIF..."
+      echo -e "Do you want to apply any other theme? Press y/Y for a new theme. Else press anything..."
+      read themevar
+      if [ "$themevar" = "y" ] || [ "$themevar" = "Y" ]; then
+	  echo -e "Available themes are\n1. ASCIINEMA\n2. Dracula\n3. Monokai\n4. Solarized Dark\n5. Solarized Light."
+	  Voption=false
+
+          while [ "$Voption" = false ]; do
+                echo "Enter an option:"
+                read themenum
+
+		  case "$themenum" in
+		    "1")
+		      agg --theme asciinema $1.cast $1.gif
+		      Voption=true
+		      ;;
+		    "2")
+		      agg --theme dracula $1.cast $1.gif
+		      Voption=true
+		      ;;
+	            "3")
+		      agg --theme monokai $1.cast $1.gif
+		      Voption=true
+		      ;;
+		    "4")
+		      agg --theme solarized-dark $1.cast $1.gif
+		      Voption=true
+		      ;;
+		    "5")
+		      agg --theme solarized-light $1.cast $1.gif
+		      Voption=true
+		      ;;
+		    *)
+		      echo "Invalid option. Please try again."
+		      ;;
+		  esac
+		done
+
+      else
+	  echo "Proceding with Default theme.."
+	  agg $1.cast $1.gif
+      fi
+
+      mv ./$1.gif /home/$USER/Pictures/terminal_SVG
+      valid_option=true
+      ;;
+    *)
+      echo "Invalid option. Please try again."
+      ;;
+  esac
+done
+rm ./$1.cast
