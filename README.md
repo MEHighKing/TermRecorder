@@ -60,3 +60,11 @@ Run `recordterm <filename>`, where **filename** is the name of the SVG you want.
 - It will create the SVG/GIF according to your requirement (follow on screen instructions) and save it to `~/Pictures/terminal_SVG`
 
 - It will remove the residual `.cast` file.
+
+
+## Changing the Size of terminal
+Sometimes, the default size on the program won't be sufficient. You may need to change the size of the result terminal. In order to do this, edit the `recordterm` file located in `/home/$USER/svg-create-program` folder. Change the width and hieght of the SVG otput.
+
+![edit-recordterm-file](https://user-images.githubusercontent.com/104882604/234506677-fe277ddd-1bf0-4449-8d51-5cb0c62160ab.png)
+
+Save the file and run the command again. This time, it will give the output in the new width and hieght.
