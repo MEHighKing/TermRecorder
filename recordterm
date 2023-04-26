@@ -1,6 +1,6 @@
 #!/bin/bash
 
-asciinema rec $1.cast
+asciinema rec /home/$USER/$1.cast
 
 echo -e "Enter 1 to Create an SVG\nEnter 2 to create a GIF"
 
@@ -13,8 +13,8 @@ while [ "$valid_option" = false ]; do
   case "$option" in
     "1")
     echo "Converting your recording to SVG..."
-    svg-term --in $1.cast --out $1.svg --window --width 80 --height 22 --no-optimize
-    mv ./$1.svg /home/$USER/Pictures/terminal_SVG
+    svg-term --in /home/$USER/$1.cast --out /home/$USER/$1.svg --window --width 80 --height 22 --no-optimize
+    mv /home/$USER/$1.svg /home/$USER/Pictures/terminal_SVG
     valid_option=true
       ;;
     "2")
@@ -31,23 +31,23 @@ while [ "$valid_option" = false ]; do
 
 		  case "$themenum" in
 		    "1")
-		      agg --theme asciinema $1.cast $1.gif
+		      agg --theme asciinema /home/$USER/$1.cast /home/$USER/$1.gif
 		      Voption=true
 		      ;;
 		    "2")
-		      agg --theme dracula $1.cast $1.gif
+		      agg --theme dracula /home/$USER/$1.cast /home/$USER/$1.gif
 		      Voption=true
 		      ;;
 	            "3")
-		      agg --theme monokai $1.cast $1.gif
+		      agg --theme monokai /home/$USER/$1.cast /home/$USER/$1.gif
 		      Voption=true
 		      ;;
 		    "4")
-		      agg --theme solarized-dark $1.cast $1.gif
+		      agg --theme solarized-dark /home/$USER/$1.cast /home/$USER/$1.gif
 		      Voption=true
 		      ;;
 		    "5")
-		      agg --theme solarized-light $1.cast $1.gif
+		      agg --theme solarized-light /home/$USER/$1.cast /home/$USER/$1.gif
 		      Voption=true
 		      ;;
 		    *)
@@ -58,10 +58,10 @@ while [ "$valid_option" = false ]; do
 
       else
 	  echo "Proceding with Default theme.."
-	  agg $1.cast $1.gif
+	  agg /home/$USER/$1.cast /home/$USER/$1.gif
       fi
 
-      mv ./$1.gif /home/$USER/Pictures/terminal_SVG
+      mv /home/$USER/$1.gif /home/$USER/Pictures/terminal_SVG
       valid_option=true
       ;;
     *)
@@ -69,4 +69,4 @@ while [ "$valid_option" = false ]; do
       ;;
   esac
 done
-rm ./$1.cast
+rm /home/$USER/$1.cast
