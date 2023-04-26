@@ -68,3 +68,9 @@ Sometimes, the default size on the program won't be sufficient. You may need to 
 ![edit-recordterm-file](https://user-images.githubusercontent.com/104882604/234506677-fe277ddd-1bf0-4449-8d51-5cb0c62160ab.png)
 
 Save the file and run the command again. This time, it will give the output in the new width and hieght.
+
+
+# To Do
+- [ ] Move the program directory to a more proper location (currently as a hidden fle in Home)
+- [ ] Upgrade the install file, so that reinstall is simpler.
+- [ ] Add more functions and tweaks as options.
