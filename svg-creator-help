@@ -5,11 +5,11 @@ echo "===="
 
 echo "This program will create an SVG file for the terminal recording."
 
-echo "To create a recording, run : createsvg <filename>"
+echo "To create a recording, run : recordterm <filename>"
 echo
 echo "Now, you may do whatever you want to record on the terminal. Once finished, press CTRL + D to stop recording. It will create an SVG of the file and move it to a common place, in /home/$USER/Pictures/terminal_SVG folder."
 
-echo  "It will also remove your .cast files"
+echo  "It will also remove your .cast files, that as created as part of the underlying `asciinema` recording."
 echo
-echo -e "Use 'editshow' to edit the captions. Opes the file in nano editor\nUse 'showing' to print the caption\nUse 'createsvg <filename>' to create an svg."
+echo -e "Use 'editshow' to edit the captions. This opens the file in nano editor\nUse 'recordterm <filename>' to create an svg\nUse 'showing' to print the caption during any recording session."
 
