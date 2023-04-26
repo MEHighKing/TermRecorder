@@ -55,7 +55,7 @@ Once install is completed, run the following as per need:
 
 Run `recordterm <filename>`, where **filename** is the name of the SVG you want. (No spaces). This will do several things:
 
-- Runs `asciinema` to record the session. As soon as you enter `createsvg <filename>` you can start recording. Once completed, finish record by `CTRL+D`.
+- Runs `asciinema` to record the session. As soon as you enter `recordterm <filename>` you can start recording. Once completed, finish record by `CTRL+D`.
 
 - It will create the SVG/GIF according to your requirement (follow on screen instructions) and save it to `~/Pictures/terminal_SVG`
 
