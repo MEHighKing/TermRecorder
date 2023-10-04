@@ -5,6 +5,8 @@ asciinema rec /home/$USER/$1.cast
 echo -e "Enter 1 to Create an SVG\nEnter 2 to create a GIF"
 
 valid_option=false
+CURRENT_TERMINAL_WIDTH=$(tput cols)
+CURRENT_TERMINAL_HEIGHT=$(tput lines)
 
 while [ "$valid_option" = false ]; do
   echo "What to do with the recording: "
@@ -13,7 +15,7 @@ while [ "$valid_option" = false ]; do
   case "$option" in
     "1")
     echo "Converting your recording to SVG..."
-    svg-term --in /home/$USER/$1.cast --out /home/$USER/$1.svg --window --width 80 --height 22 --no-optimize
+    svg-term --in /home/$USER/$1.cast --out /home/$USER/$1.svg --window --width $CURRENT_TERMINAL_WIDTH --height $CURRENT_TERMINAL_HEIGHT --no-optimize
     mv /home/$USER/$1.svg /home/$USER/Pictures/terminal_SVG
     valid_option=true
       ;;
