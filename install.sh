@@ -2,42 +2,51 @@
 echo "Expecting you have installed both 'asciinema' and 'svg-term-cli'..."
 echo
 
+rm -rf /home/$USER/.svg-create-program
+PROG_DIR="/home/$USER/.svg-create-program"
+mkdir -p "$PROG_DIR"
+echo "Directory '$PROG_DIR' is created..."
 
-directory_prog="/home/$USER/.svg-create-program"
+DEST_DIR="/home/$USER/Pictures/terminal_SVG"
 
-if [ ! -d "$directory_prog" ]; then
-  mkdir "$directory_prog"
-  cp recordterm /home/$USER/.svg-create-program
-  cp editshow /home/$USER/.svg-create-program
-  cp showing /home/$USER/.svg-create-program
-  cp svg-creator-help /home/$USER/.svg-create-program
-else
-  echo "Skipping: $directory_prog already exists"
+if [ ! -d "$DEST_DIR" ]; then
+    # If it doesn't exist, create it
+    mkdir -p "$DEST_DIR"
+    echo "Directory '$DEST_DIR' created..."
 fi
 
-directory_pic="/home/$USER/Pictures/terminal_SVG"
+chmod +x recordterm
+chmod +x editshow
+chmod +x showing
+chmod +x svg-creator-help
 
-if [ ! -d "$directory_pic" ]; then
-  mkdir "$directory_2"
-else
-  echo "Skipping: $directory_pic already exists"
+cp recordterm /home/$USER/.svg-create-program
+cp editshow /home/$USER/.svg-create-program
+cp showing /home/$USER/.svg-create-program
+cp svg-creator-help /home/$USER/.svg-create-program
+
+echo "Copied program files..."
+
+echo "Downloading AGG from GitHub..."
+
+wget https://github.com/asciinema/agg/releases/download/v1.4.3/agg-x86_64-unknown-linux-gnu
+
+echo "Download Complete!"
+
+mv agg-x86_64-unknown-linux-gnu agg
+chmod +x agg
+mv agg /home/$USER/.svg-create-program
+
+echo "Moved AGG to '$PROG_DIR'"
+
+PATH_TO_ADD='export PATH=~/.svg-create-program:$PATH'
+
+# Check if .bashrc already contains the line
+
+if ! grep -qF "$PATH_TO_ADD" ~/.bashrc; then
+    # If not found, append the line to the end of .bashrc
+    echo "$PATH_TO_ADD" >> ~/.bashrc
+    echo "Added the '$PATH_TO_ADD' to your bashrc"
 fi
 
-chmod +x /home/$USER/.svg-create-program/recordterm
-chmod +x /home/$USER/.svg-create-program/editshow
-chmod +x /home/$USER/.svg-create-program/showing
-chmod +x /home/$USER/.svg-create-program/svg-creator-help
-
-
-path_to_add="/home/$USER/.svg-create-program"
-
-if ! grep -q "^export PATH=.*:$path_to_add" ~/.bashrc; then
-    echo "Adding program path to your bashrc..."
-    echo 'export PATH="$PATH:'"$path_to_add"'"' >> ~/.bashrc
-    source ~/.bashrc
-else
-    echo "Skipping: Program path already present in your bashrc"
-fi
-
-echo "Thanks. TermRecorder is now installed for user : $USER. Run svg-creator-help to get an overview"
-
+echo "Thanks. It's Now installed. Restart current session to start working. Also, run svg-creator-help to get an overview"
