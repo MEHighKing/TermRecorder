@@ -33,8 +33,12 @@ The installer script does the following:
    2. Copies the files inside this folder to the directory `~/.svg-create-program`
    
    3. Gives them execution permission
+
+   4. Downloads a release of `agg` from its github page
+
+   5. Give `agg` execution permission and move it to the `svg-create-program` directory.
    
-   4. Adds the directory `~/.svg-create-program` to your PATH in `~/.bashrc`
+   6. Adds the directory `~/.svg-create-program` to your PATH in `~/.bashrc`
    
    You need to restart the shell to get effect.
    
@@ -61,4 +65,13 @@ Run `recordterm <filename>`, where **filename** is the name of the SVG you want.
 
 
 ## Changing the Size of terminal
-The program will work based on the current column width and height. So, before running `recordterm <filename>`, drag and resize your terminal to the required width and height.
+At the moment, there are several recording sizes, that suits my needs. They are:
+- 80x24: Use `recordterm <file-name>`
+- 120x10: Use `recordterm10 <file-name>`
+- 120x15: Use `recordterm15 <file-name>`
+- 120x20: Use `recordterm20 <file-name>`
+- 120x25: Use `recordterm25 <file-name>`
+- 70x15: Use `recordterm-small-square <file-name>`
+- 82x5: Use `recordterm-tiny <file-name>`
+
+When I learn more, I will change this to dynamic :)

@@ -16,11 +16,23 @@ if [ ! -d "$DEST_DIR" ]; then
 fi
 
 chmod +x recordterm
+chmod +x recordterm10
+chmod +x recordterm15
+chmod +x recordterm20
+chmod +x recordterm25
+chmod +x recordterm-tiny
+chmod +x recordterm-small-square
 chmod +x editshow
 chmod +x showing
 chmod +x svg-creator-help
 
 cp recordterm /home/$USER/.svg-create-program
+cp recordterm10 /home/$USER/.svg-create-program
+cp recordterm15 /home/$USER/.svg-create-program
+cp recordterm20 /home/$USER/.svg-create-program
+cp recordterm25 /home/$USER/.svg-create-program
+cp recordterm-tiny /home/$USER/.svg-create-program
+cp recordterm-small-square /home/$USER/.svg-create-program
 cp editshow /home/$USER/.svg-create-program
 cp showing /home/$USER/.svg-create-program
 cp svg-creator-help /home/$USER/.svg-create-program

@@ -17,7 +17,7 @@ while [ "$valid_option" = false ]; do
   case "$option" in
     "1")
     echo "Converting your recording to SVG..."
-    svg-term --in /home/$USER/$1.cast --out /home/$USER/$1.svg --window --width 80 --height 24 --no-optimize
+    svg-term --in /home/$USER/$1.cast --out /home/$USER/$1.svg --window --width 120 --height 20 --no-optimize
     mv /home/$USER/$1.svg /home/$USER/Pictures/terminal_SVG
     valid_option=true
       ;;

@@ -7,6 +7,31 @@ echo "This program is used to create an SVG/GIF for the terminal recording, base
 
 echo "To create a recording, run : recordterm <filename>"
 echo
+
+echo "At the moment, there are several recording sizes, that suits my needs. They are:"
+echo
+
+echo "80x24: Use recordterm <file-name>"
+echo
+
+echo "120x10: Use recordterm10 <file-name>"
+echo
+
+echo "120x15: Use recordterm15 <file-name>"
+echo
+
+echo "120x20: Use recordterm20 <file-name>"
+echo
+
+echo "120x25: Use recordterm25 <file-name>"
+echo
+
+echo "70x15: Use recordterm-small-square <file-name>"
+echo
+
+echo "82x5: Use recordterm-tiny <file-name>"
+echo
+
 echo "Now, you may do whatever you want to record on the terminal. Once finished, press CTRL + D to stop recording. It will create an SVG/GIF of the file (as per the onscreen choice) and move it to a common place, in /home/$USER/Pictures/terminal_SVG folder."
 
 echo  "It will also remove your .cast files, that was created as part of the underlying `asciinema` recording."

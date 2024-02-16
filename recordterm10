@@ -8,7 +8,7 @@ valid_option=false
 
 # Not Working Needs Modification
 # CURRENT_TERMINAL_WIDTH=$(tput cols)
-#CURRENT_TERMINAL_HEIGHT=$(tput lines)
+# CURRENT_TERMINAL_HEIGHT=$(tput lines)
 
 while [ "$valid_option" = false ]; do
   echo "What to do with the recording: "
@@ -17,7 +17,7 @@ while [ "$valid_option" = false ]; do
   case "$option" in
     "1")
     echo "Converting your recording to SVG..."
-    svg-term --in /home/$USER/$1.cast --out /home/$USER/$1.svg --window --width 80 --height 24 --no-optimize
+    svg-term --in /home/$USER/$1.cast --out /home/$USER/$1.svg --window --width 120 --height 10 --no-optimize
     mv /home/$USER/$1.svg /home/$USER/Pictures/terminal_SVG
     valid_option=true
       ;;
