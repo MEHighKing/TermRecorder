@@ -29,7 +29,7 @@ echo "Copied program files..."
 
 echo "Downloading AGG from GitHub..."
 
-wget https://github.com/asciinema/agg/releases/download/v1.5.0/agg-x86_64-unknown-linux-gnu
+wget https://github.com/asciinema/agg/releases/download/v1.7.0/agg-x86_64-unknown-linux-gnu
 
 echo "Download Complete!"
 
